@@ -14,7 +14,7 @@ A backend of application to manage banners
 ## To-do
 
 - [x] deploy Postgres on-premise or in cloud
-- [ ] create db scheme in third normal form
+- [x] create db scheme in third normal form
     - id (primary key)
       title, varchar(256) *
       text, varc(256)
@@ -25,6 +25,7 @@ A backend of application to manage banners
       createdAt(default)
       updatedAt(def timestamp)
 - [ ] install and configure linter
+- [ ] setup project build
 - [ ] establish connection to db using knex
 - [ ] add GraphQL 
     - create banner
