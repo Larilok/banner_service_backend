@@ -24,8 +24,8 @@ A backend of application to manage banners
       isActive, (boolean)
       createdAt(default)
       updatedAt(def timestamp)
-- [ ] install and configure linter
-- [ ] setup project build
+- [x] install and configure linter
+- [x] setup project build
 - [ ] establish connection to db using knex
 - [ ] add GraphQL 
     - create banner
