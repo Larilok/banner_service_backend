@@ -1,0 +1,44 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+"""A banner to insert into a database"""
+type BannerInsert {
+  title: String
+  text: String
+  pictureUrl: String!
+  startDate: String
+  endDate: String
+  isActive: Boolean
+}
+
+"""A banner to return from a database"""
+type BannerReturn {
+  id: Int!
+  title: String
+  text: String
+  pictureUrl: String!
+  startDate: String
+  endDate: String
+  isActive: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+"""Root Mutation"""
+type Mutation {
+  """Add a banner"""
+  addBanner(title: String, text: String, pictureUrl: String!, startDate: String, endDate: String, isActive: Boolean): BannerInsert
+}
+
+"""Root Query"""
+type Query {
+  """A banner by id"""
+  banner(id: Int): BannerReturn
+
+  """List of banners"""
+  banners: [BannerReturn]
+}
+

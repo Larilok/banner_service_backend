@@ -1,5 +1,5 @@
 import Knex from 'knex'
-import { Database } from './Config'
+import { Database } from './config'
 
 export const connect = async (): Promise<Knex> => {
   return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ export const connect = async (): Promise<Knex> => {
       }
     })
     knex.raw('SELECT current_timestamp')
-      .then((res) => { /* console.log(res); */ resolve(knex) })
+      .then((res) => { console.log('connected'); resolve(knex) })
       .catch((err) => { reject(err) })
   })
 }
