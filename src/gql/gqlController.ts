@@ -5,7 +5,7 @@ import { readFileSync } from 'fs'
 import { BannersTable } from '../banners/bannerController'
 import { Banner, BannerInsert } from '../banners/bannersData'
 
-export const createSchema = () => buildSchema(readFileSync('./src/schema.graphql').toString())
+export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
 interface DataWithID {
   id:number

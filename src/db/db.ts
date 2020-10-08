@@ -13,7 +13,7 @@ export const connect = async (): Promise<Knex> => {
       }
     })
     knex.raw('SELECT current_timestamp')
-      .then((res) => { console.log('connected'); resolve(knex) })
+      .then((res) => { console.log('Established connection with database'); resolve(knex) })
       .catch((err) => { reject(err) })
   })
 }
