@@ -15,6 +15,6 @@ const main = async () => {
     rootValue: root,
     graphiql: true
   }))
-  app.listen(8887, () => console.log('Server is up on http://localhost:8888/graphql'))
+  app.listen(8888, () => console.log('Server is up on http://localhost:8888/graphql'))
 }
 main()

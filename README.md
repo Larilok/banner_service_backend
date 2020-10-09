@@ -6,8 +6,41 @@ A backend of application to manage banners
 - Typescript
 - "Knex" for database access
 - Postgres as database
-- "Standard" for linting
 - GraphQL as api
+----
+
+## How to use
+
+1. Clone this repo
+2. Move to the root of the project
+3. Run `npm install --production` 
+4. Run `npm start`
+5. Open postman
+6. Create a new POST request
+7. Type address `http://localhost:8888/graphql`
+8. Open "BODY" subpage and mark "GraphQL"
+9. Type
+ ```
+ mutation {
+  addBanner(pictureUrl: "http") {
+    pictureUrl
+  }
+}
+```
+then
+```
+{
+  banners {
+    id,
+    pictureUrl
+  }
+    banner(id: 1) {
+    id
+  }
+}
+```
+Postman 
+![image](https://user-images.githubusercontent.com/31710921/95579740-d869e200-0a3e-11eb-8a3a-537b07f246e8.png)
 
 ----
 
