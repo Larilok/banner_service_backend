@@ -18,13 +18,3 @@ export interface BannerInsert {
   endDate?: string,
   isActive?: boolean,
 }
-
-//     id serial primary key,
-//     title varchar(256),
-//     text varchar(256),
-//     pictureUrl varchar(256) not null,
-//     startDate timestamp,
-//     endDate timestamp,
-//     isActive bool default false,
-//     createdAt timestamp default current_timestamp,
-//     updatedAt timestamp default current_timestamp

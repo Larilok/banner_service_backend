@@ -41,4 +41,3 @@ type Query {
   """List of banners"""
   banners: [BannerReturn]
 }
-

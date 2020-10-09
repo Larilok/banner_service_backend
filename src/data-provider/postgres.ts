@@ -1,7 +1,7 @@
 import Knex from 'knex'
-import { Database } from './config'
+import { Database } from '../db/config'
 
-export const connect = async (): Promise<Knex> => {
+export const connect = async ():Promise<Knex> => {
   return new Promise((resolve, reject) => {
     const knex = Knex({
       client: 'pg',
@@ -18,10 +18,4 @@ export const connect = async (): Promise<Knex> => {
   })
 }
 
-// export const createTable = async (knex:Knex, name:String) => {
-//   return new Promise ((resolve, reject) => {
-//     const exists:boolean = knex.schema.hasTable('banners')
-//     if(!exists){
-
-//   }
-// })
+export default { connect }

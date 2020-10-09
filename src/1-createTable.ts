@@ -1,9 +1,9 @@
-import Knex, { SchemaBuilder } from 'knex'
-import { connect } from './db/db'
-import { BannersTable } from './banners/bannerController'
+import { SchemaBuilder } from 'knex'
+import { create, ProviderData } from './data-provider/index'
+import { up } from './db/migration'
 
-connect()
-  .then((dbConnection:Knex) => BannersTable.up(dbConnection)
+create()
+  .then((dbConnection:ProviderData) => up(dbConnection.postgres)
     .then((val:SchemaBuilder) => console.log(val)))
 
 // const main = async () => {

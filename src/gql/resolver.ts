@@ -1,9 +1,9 @@
-import Knex from 'knex'
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
 
-import { BannersTable } from '../banners/bannerController'
-import { Banner, BannerInsert } from '../banners/bannersData'
+import BannersTable from '../banners-table/controller'
+import { Banner, BannerInsert } from '../banners-table/interfaces'
+import { ProviderData } from '../data-provider/index'
 
 export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
@@ -11,13 +11,13 @@ interface DataWithID {
   id:number
 }
 
-export const createRoot = (data:Knex) => {
+export const createRoot = (data:ProviderData) => {
   return {
     banner: async ({ id }:DataWithID) => {
-      return (await BannersTable.getBanner(data, id))[0]
+      return (await (await BannersTable.create(data)).get(id))[0]
     },
     banners: async () => {
-      return await BannersTable.getBannerList(data)
+      return (await (await BannersTable.create(data)).getList())
     },
     addBanner: async ({ title, text, pictureUrl, isActive, startDate, endDate }:Banner) => {
       const banner:BannerInsert = {
@@ -28,7 +28,7 @@ export const createRoot = (data:Knex) => {
         startDate: startDate,
         endDate: endDate
       }
-      await BannersTable.createBanner(data, banner)
+      await (await BannersTable.create(data)).create(banner)
       return banner
     }
   }

@@ -27,8 +27,16 @@ A backend of application to manage banners
 - [x] install and configure linter
 - [x] setup project build
 - [x] establish connection to db using knex
-- [ ] add GraphQL 
+- [x] add GraphQL 
     - create banner
     - get banner by id
     - get all banners
-- [ ] add Express
+- [x] add Express
+
+---------------------
+
+- How to install{commands}
+- How to deploy locally
+- GraphQL query and mutation
+
+- migration to add field and delete, change. Fill test data.
