@@ -1,35 +1,31 @@
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
 
-import BannersTable from '../banners-table/controller'
-import { Banner, BannerInsert } from '../banners-table/interfaces'
-import { ProviderData } from '../data-provider/index'
+import { BannerInsert } from '../db/tables/banners/interfaces'
+import BannersTable from '../db/tables/banners/connection-interface'
+import { ProviderData } from '../data-provider'
 
 export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
-interface DataWithID {
+interface IBanner {
   id:number
 }
+interface IAddBanner {
+  banner:BannerInsert
+}
 
-export const createRoot = (data:ProviderData) => {
+export const createRoot = async (data:ProviderData) => {
+  const connInterface = await BannersTable.createConnectionInterface(data)
   return {
-    banner: async ({ id }:DataWithID) => {
-      return (await (await BannersTable.create(data)).get(id))[0]
+    banner: async ({ id }:IBanner) => {
+      const bannersById = await connInterface.get(id)
+      return bannersById[0]
     },
     banners: async () => {
-      return (await (await BannersTable.create(data)).getList())
+      return await connInterface.getList()
     },
-    addBanner: async ({ title, text, pictureUrl, isActive, startDate, endDate }:Banner) => {
-      const banner:BannerInsert = {
-        title: title,
-        text: text,
-        pictureUrl: pictureUrl,
-        isActive: isActive,
-        startDate: startDate,
-        endDate: endDate
-      }
-      await (await BannersTable.create(data)).create(banner)
-      return banner
+    addBanner: async ({ banner }:IAddBanner) => {
+      return await connInterface.create(banner)
     }
   }
 }

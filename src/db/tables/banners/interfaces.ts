@@ -11,8 +11,8 @@ export interface Banner {
 }
 
 export interface BannerInsert {
-  title?: string,
-  text?: string,
+  title: string,
+  text: string,
   pictureUrl: string,
   startDate?: string,
   endDate?: string,

@@ -11,36 +11,60 @@ A backend of application to manage banners
 
 ## How to use
 
-1. Clone this repo
+1. Clone this repo `https://github.com/Larilok/banner_service_backend.git`
 2. Move to the root of the project
 3. Run `npm install --production` 
-4. Run `npm start`
-5. Open postman
-6. Create a new POST request
-7. Type address `http://localhost:8888/graphql`
-8. Open "BODY" subpage and mark "GraphQL"
-9. Type
+4. Ask `michaelmarkelovv@gmail.com` for `.env` file and add place this file to the root of the project
+5. Run `npm start`
+6. Open postman
+7. Create a new POST request
+8. Type address `http://localhost:8888/graphql`
+9. Open "BODY" subpage and mark "GraphQL"
+10. 
+Type this code to insert a sample data into database
  ```
  mutation {
-  addBanner(pictureUrl: "http") {
-    pictureUrl
-  }
-}
-```
-then
-```
-{
-  banners {
-    id,
-    pictureUrl
-  }
-    banner(id: 1) {
+  addBanner(banner: {pictureUrl: "http", title: "http", text: "http"} ) {
     id
   }
 }
 ```
-Postman 
-![image](https://user-images.githubusercontent.com/31710921/95579740-d869e200-0a3e-11eb-8a3a-537b07f246e8.png)
+then run this query to get all banners 'id' and 'pictureUrl' from the table
+```
+query {
+  banners {
+    id,
+    pictureUrl
+  }
+}
+```
+or for a single banner
+```
+query {
+    banner(id: 1) {
+    id,
+    pictureUrl
+  }
+}
+```
+u can provide fragments to simplify the request
+```
+fragment FBannerReturn on BannerReturn {
+  id,
+  title,
+  text,
+  pictureUrl
+}
+
+query {
+  banners {
+    id,
+    pictureUrl
+  }
+}
+```
+How should the first code look like in Postman 
+![image](https://user-images.githubusercontent.com/31710921/95856210-56d9c300-0d62-11eb-82be-ca01fbbdc700.png)
 
 ----
 
@@ -66,10 +90,14 @@ Postman
     - get all banners
 - [x] add Express
 
----------------------
 
-- How to install{commands}
-- How to deploy locally
-- GraphQL query and mutation
+- migration to
+  - add column
+  - delete column
+  - change type of column
+- seed to
+  - fill test data.
 
-- migration to add field and delete, change. Fill test data.
+---
+
+## Theory

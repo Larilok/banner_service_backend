@@ -1,13 +1,7 @@
-"""Exposes a URL that specifies the behaviour of this scalar."""
-directive @specifiedBy(
-  """The URL that specifies the behaviour of this scalar."""
-  url: String!
-) on SCALAR
-
 """A banner to insert into a database"""
-type BannerInsert {
-  title: String
-  text: String
+input BannerInsert {
+  title: String!
+  text: String!
   pictureUrl: String!
   startDate: String
   endDate: String
@@ -17,8 +11,8 @@ type BannerInsert {
 """A banner to return from a database"""
 type BannerReturn {
   id: Int!
-  title: String
-  text: String
+  title: String!
+  text: String!
   pictureUrl: String!
   startDate: String
   endDate: String
@@ -30,14 +24,20 @@ type BannerReturn {
 """Root Mutation"""
 type Mutation {
   """Add a banner"""
-  addBanner(title: String, text: String, pictureUrl: String!, startDate: String, endDate: String, isActive: Boolean): BannerInsert
+  addBanner(banner: BannerInsert): BannerReturn
 }
 
 """Root Query"""
 type Query {
   """A banner by id"""
-  banner(id: Int): BannerReturn
+  banner(id: ID!): BannerReturn
 
   """List of banners"""
   banners: [BannerReturn]
+}
+
+fragment FBannerReturn on BannerReturn {
+  id,
+  title,
+  pictureUrl
 }
