@@ -118,7 +118,7 @@ Expected result
 - lodash
 - duck typing protect
 - refactor the structure of the project
-
+- metadata in Reflect, what for?
 ---
 
 ## Theory
