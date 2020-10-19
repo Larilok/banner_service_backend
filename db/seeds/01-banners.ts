@@ -1,9 +1,10 @@
 import Knex from 'knex'
-import { BannerInsert } from '../../src/banners-table/interfaces'
+import { BannerInsert } from '../../src/db/tables/banners/interfaces'
 
 export const seed = async (knex: Knex): Promise<void> => {
   // Deletes ALL existing entries
   await knex('banners').del()
+  await knex.raw('ALTER SEQUENCE banners_id_seq RESTART WITH 1')
 
   const banners:BannerInsert[] = [
     { title: 'a', text: 'aaa', pictureUrl: 'http://a.com' },

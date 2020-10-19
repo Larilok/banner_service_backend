@@ -1,21 +1,21 @@
 import { QueryBuilder } from 'knex'
 import { SCHEMA } from '../../../../knexfile'
-import { Banner, BannerInsert } from './interfaces'
-import { ProviderData } from '../../../data-provider/index'
+import { BannerReturn, BannerInsert } from './interfaces'
+import knex from './knex'
 
-const getBanner = (banners: () => QueryBuilder) => async (id:number):Promise<Banner[]> => {
+const getBanner = (banners: () => QueryBuilder) => async (id:number):Promise<BannerReturn[]> => {
   return await banners().select().where('id', id)
 }
 
-const getBannerList = (banners: () => QueryBuilder) => async ():Promise<Banner[]> => {
+const getBannerList = (banners: () => QueryBuilder) => async ():Promise<BannerReturn[]> => {
   return await banners().select()
 }
 
-const createBanner = (banners: () => QueryBuilder) => async (banner: BannerInsert):Promise<Banner> => {
+const createBanner = (banners: () => QueryBuilder) => async (banner: BannerInsert):Promise<BannerReturn> => {
   const idOfInsertedBanner = (await banners().insert(banner, ['id']) as [{id: string}])[0]
   return (await banners()
     .select()
-    .where({ id: idOfInsertedBanner.id }) as Banner[])[0]
+    .where({ id: idOfInsertedBanner.id }) as BannerReturn[])[0]
 }
 
 export interface IConnection {
@@ -24,9 +24,7 @@ export interface IConnection {
   create: ReturnType<typeof createBanner>
 }
 
-export const createConnectionInterface = async (data: ProviderData):Promise<IConnection> => {
-  const QBBanners = () => data.postgres.withSchema(SCHEMA).table('banners')
-
+export const createConnectionInterface = async ():Promise<IConnection> => {
   return {
     get: getBanner(QBBanners),
     getList: getBannerList(QBBanners),

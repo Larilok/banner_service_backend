@@ -1,4 +1,4 @@
-export interface Banner {
+export interface BannerReturn {
   id: number,
   title?: string,
   text?: string,

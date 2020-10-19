@@ -3,7 +3,6 @@ import { readFileSync } from 'fs'
 
 import { BannerInsert } from '../db/tables/banners/interfaces'
 import BannersTable from '../db/tables/banners/connection-interface'
-import { ProviderData } from '../data-provider'
 
 export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
@@ -14,8 +13,8 @@ interface IAddBanner {
   banner:BannerInsert
 }
 
-export const createRoot = async (data:ProviderData) => {
-  const connInterface = await BannersTable.createConnectionInterface(data)
+export const createRoot = async () => {
+  const connInterface = await BannersTable.createConnectionInterface()
   return {
     banner: async ({ id }:IBanner) => {
       const bannersById = await connInterface.get(id)
