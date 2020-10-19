@@ -62,16 +62,6 @@ const showInheritance = (instance:any):any => {
 // //   set? (v: any): void;
 // // }
 
-function classDecorator<T extends { new (...args: any[]): {} }>(
-  constructor: T
-) {
-  console.log('second')
-  return class extends constructor {
-    newProperty = 'new property'
-    hello = 'override'
-  }
-}
-
 // function sealed(constructor: Function) {
 //   console.log('sealed decorator')
 //   Object.seal(constructor)

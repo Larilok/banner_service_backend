@@ -99,18 +99,25 @@ Expected result
   - fill test data.
 
 
-- users (id, name, surname, createdAt(default), updatedAt(def timestamp))
-- bannerViewed (id, bannerId, UserId, seenAt)
-- query to get data from all tables(today, who)
+- [x] users (id, name, surname, createdAt(default), updatedAt(def timestamp))
+- [x]bannerViewed (id, bannerId, UserId, seenAt)
+- [x]query to get data from all tables(today, who)
+- [x] index on text
+- [x] unique on name
 
+- indexes types and what are they for
 - query: join 3 tables, order
 - query: select with max from 3 tables, order
 - query: select having, group by, order
-- lodash
+- query plan
+- arguments (on delete, on update)
 - generics: ternary operator, restricted by enum
 - diff '==' and '==='
-
-
+- function (apply, caller, bind)
+- typescript file names
+- lodash
+- duck typing protect
+- refactor the structure of the project
 
 ---
 
