@@ -106,6 +106,12 @@ Expected result
 - [x] unique on name
 
 - indexes types and what are they for
+- test indexes on random values
+- add all view in banner_user_view
+
+task: 
+  views count of unique banner by user
+  count how many unique user viewed a banner
 - query: join 3 tables, order
 - query: select with max from 3 tables, order
 - query: select having, group by, order
@@ -114,7 +120,7 @@ Expected result
 - generics: ternary operator, restricted by enum
 - diff '==' and '==='
 - function (apply, caller, bind)
-- typescript file names
+- typescript file extensions
 - lodash
 - duck typing protect
 - refactor the structure of the project
