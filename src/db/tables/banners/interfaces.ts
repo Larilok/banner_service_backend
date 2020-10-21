@@ -14,7 +14,7 @@ export interface BannerInsert {
   title: string,
   text: string,
   pictureUrl: string,
-  startDate?: string,
-  endDate?: string,
+  startDate?: Date,
+  endDate?: Date,
   isActive?: boolean,
 }
