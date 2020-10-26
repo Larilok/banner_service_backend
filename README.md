@@ -105,24 +105,40 @@ Expected result
 - [x] index on text
 - [x] unique on name
 
-- indexes types and what are they for
-- test indexes on random values
-- add all view in banner_user_view
+- [x]indexes types and what are they for
 
-task: 
-  views count of unique banner by user
-  count how many unique user viewed a banner
-- query: join 3 tables, order
-- query: select with max from 3 tables, order
-- query: select having, group by, order
-- query plan
-- arguments (on delete, on update)
-- generics: ternary operator, restricted by enum
+- [x] create queries:                                        (3h 50m - 4h)
+- views count of unique banner by user                 (10m -) -
+- count how many unique user viewed a banner           (10m -)
+- query: join 3 tables, order                          (10m -)
+- query: select with max from 3 tables, order          (10m -)
+- query: select having, group by, order, limit!        (30m -)
+- performance optimization                             (1h 30m -)
+- joins (left/right(outer), inner, cross, natural)     (1h 10m -) +
+(from the start, in the middle)
+
+[x] query plan:                                        (4h+3h - 4h+3h30m) 
+ - watch lecture about query plan                      (1h 30m - 1h)
+ - test indexes                                        (2h 30m -)
+  - test each index(~10min for each)                   (50m -)
+  - test when query uses index and when not            (1h 40m -)
+
+-- spare time
+how to optimize a query:                               (4h -)
+ - watch lecture about query optimization              (2h -)
+ - practice                                            (30m -)
+
+explain a compl task
+
+- natural join                                        (30m -)
+- first task rewrite                                  (20m -)
+- arguments (on delete, on update)                    (20m -)
 - diff '==' and '==='
-- function (apply, caller, bind)
-- typescript file extensions
 - lodash
 - duck typing protect
+- generics: ternary operator, restricted by enum      ()
+- function (apply, caller, bind)
+- typescript file extensions
 - refactor the structure of the project
 - metadata in Reflect, what for?
 ---
