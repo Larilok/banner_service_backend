@@ -130,10 +130,10 @@ how to optimize a query:                               (4h -)
 
 explain a compl task
 
-- natural join                                        (30m -)
-- first task rewrite                                  (20m -)
-- arguments (on delete, on update)                    (20m -)
-- diff '==' and '==='                                 (10m -)
+- [x] natural join                                        (30m - 30m)
+- [x] first task rewrite                                  (20m - 15m)
+- [x] arguments (on delete, on update)                    (20m - 25m)
+- [x] diff '==' and '==='                                 (10m - 30m)
 - function (apply, caller, bind)                      (15m -)
 - typescript files for type delc                      (30m -)
 - lodash(funcs desc, modules)                         (1h -)
