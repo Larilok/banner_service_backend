@@ -133,12 +133,12 @@ explain a compl task
 - natural join                                        (30m -)
 - first task rewrite                                  (20m -)
 - arguments (on delete, on update)                    (20m -)
-- diff '==' and '==='
-- lodash
-- duck typing protect
+- diff '==' and '==='                                 (10m -)
+- function (apply, caller, bind)                      (15m -)
+- typescript files for type delc                      (30m -)
+- lodash(funcs desc, modules)                         (1h -)
+- duck typing protect value(защитники типов)          (30m -)
 - generics: ternary operator, restricted by enum      ()
-- function (apply, caller, bind)
-- typescript file extensions
 - refactor the structure of the project
 - metadata in Reflect, what for?
 ---
