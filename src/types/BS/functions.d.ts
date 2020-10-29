@@ -1,10 +1,11 @@
+import { GraphQLSchema } from 'graphql'
 
-declare namespace BS {
-  type createSchema = () => GraphQLSchema
+// declare namespace BS {
+  export type createSchema = () => GraphQLSchema
 
-  type createRoot = () => Promise<{
+  export type createRoot = () => Promise<{
     banner: ({ id }: any) => Promise<any>
     banners: () => Promise<any[]>
     addBanner: ({ banner }: any) => Promise<any>
   }>
-}
+// }

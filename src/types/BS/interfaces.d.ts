@@ -1,5 +1,5 @@
-declare namespace BS {
-  interface BannerReturn {
+// declare namespace BS {
+  export interface BannerReturn {
     id: number,
     title?: string,
     text?: string,
@@ -11,7 +11,7 @@ declare namespace BS {
     updatedAt: string
   }
 
-  interface BannerInsert {
+  export interface BannerInsert {
     title: string,
     text: string,
     pictureUrl: string,
@@ -20,12 +20,11 @@ declare namespace BS {
     isActive?: boolean,
   }
 
-  interface IBanner {
+  export interface IBanner {
     id:number
   }
 
-  interface IAddBanner {
+  export interface IAddBanner {
     banner:BannerInsert
   }
-
-}
+// }
