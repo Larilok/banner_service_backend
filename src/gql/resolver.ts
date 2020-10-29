@@ -1,19 +1,11 @@
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
 
-import { BannerInsert } from '../db/tables/banners/interfaces'
 import BannersTable from '../db/tables/banners/connection-interface'
 
-export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
+export const createSchema: BS.createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
-interface IBanner {
-  id:number
-}
-interface IAddBanner {
-  banner:BannerInsert
-}
-
-export const createRoot = async () => {
+export const createRoot: BS.createRoot = async () => {
   const connInterface = await BannersTable.createConnectionInterface()
   return {
     banner: async ({ id }:IBanner) => {

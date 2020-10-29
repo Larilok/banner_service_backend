@@ -1,6 +1,7 @@
 A backend of application to manage banners
 =====
-
+import _ from 'lodash'
+const _ = require('lodash')
 ## Technologies
 
 - Typescript
@@ -135,12 +136,12 @@ explain a compl task
 - [x] arguments (on delete, on update)                    (20m - 25m)
 - [x] diff '==' and '==='                                 (10m - 30m)
 - [x] function (apply, caller, bind)                      (15m - 40m)
-- typescript files for type delc                          (30m - )
-- lodash(funcs desc, modules)                             (1h -) 20m
+- [x] lodash(funcs desc, modules)                         (1h - 30m)
+- typescript files for type delc + create d.ts            (30m - ) +50m
 - duck typing protect value(защитники типов)              (30m -)
-- generics: ternary operator, restricted by enum          ()
-- refactor the structure of the project
-- metadata in Reflect, what for?
+- generics: ternary operator, restricted by enum          (1h 30m -)
+- metadata in Reflect, what for?                          (50m -)
+- refactor the structure of the project                   (30m -)
 ---
 
 ## Theory
