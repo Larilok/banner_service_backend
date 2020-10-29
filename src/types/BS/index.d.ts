@@ -1,13 +1,13 @@
 import { GraphQLSchema } from 'graphql'
 
-export type createSchema = () => GraphQLSchema
+declare type createSchema = () => GraphQLSchema
 
-export type createRoot = () => Promise<{
+declare type createRoot = () => Promise<{
   banner: ({ id }: any) => Promise<any>
   banners: () => Promise<any[]>
   addBanner: ({ banner }: any) => Promise<any>
 }>
-export interface BannerReturn {
+declare interface BannerReturn {
   id: number,
   title?: string,
   text?: string,
@@ -19,7 +19,7 @@ export interface BannerReturn {
   updatedAt: string
 }
 
-export interface BannerInsert {
+declare interface BannerInsert {
   title: string,
   text: string,
   pictureUrl: string,
@@ -28,11 +28,11 @@ export interface BannerInsert {
   isActive?: boolean,
 }
 
-export interface IBanner {
+declare interface IBanner {
   id:number
 }
 
-export interface IAddBanner {
+declare interface IAddBanner {
   banner:BannerInsert
 }
 // values (let, const, and var), namespace(only types inside), module, enum, class, import, function
