@@ -1,7 +1,7 @@
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
 
-import * as BS from 'BS'
+import BS from 'BS'
 
 import BannersTable from '../db/queries'
 

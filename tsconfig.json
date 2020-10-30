@@ -9,11 +9,7 @@
       "moduleResolution": "node",
       "declaration": true,
       "declarationMap": true,
-      "declarationDir": "./types",
       "experimentalDecorators": true,
-      "typeRoots": [
-
-      ],
       "paths": {
           "*": [
               "node_modules/*",
