@@ -139,7 +139,7 @@ explain a compl task
 - [x] lodash(funcs desc, modules)                         (1h - 30m)
 - [x] typescript files for type delc + create d.ts        (30m - ) +50m +4h + 50m
 - dependency injection(none, commonJs, amd, ES6)          (30m - 30m)
-- decl func in .d.ts and implement in .ts file            -----
+- decl func in .d.ts and implement in .ts file            (15m - 15m)
 - SOL(I!)D                                                (30m -)
 - type and interface !diff                                (20m -)
 - duck typing protect value(защитники типов)              (30m -)
