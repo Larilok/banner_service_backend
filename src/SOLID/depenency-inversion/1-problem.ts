@@ -11,13 +11,19 @@ class CalorieTracker {
   trackCalories(caloriesCount) {
     this. currentCalories += caloriesCount
     if (this.currentCalories > this.maxCalories)
-      this.logCaloriesSurplus()
+      console.log('Max calories exceeded')
+  }
+  trackCalories(caloriesCount) {
+    this. currentCalories += caloriesCount
+    if (this.currentCalories > this.maxCalories)
+      console.log('Max calories exceeded')
+  }
+  trackCalories(caloriesCount) {
+    this. currentCalories += caloriesCount
+    if (this.currentCalories > this.maxCalories)
+      console.log('Max calories exceeded')
   }
 
-  // how we log
-  private logCaloriesSurplus() {
-    console.log('Max calories exceeded')
-  }
 }
 
 const calorieTracker = new CalorieTracker(1000)

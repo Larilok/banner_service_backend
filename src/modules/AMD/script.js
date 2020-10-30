@@ -1,3 +1,3 @@
-require(["msg", "greeter"], function (msg, greeter) {
-  console.log(console.log(greeter(msg)))
+require(['msg', 'greeter'], function (msg, greeter) {
+  greeter(msg)
 })

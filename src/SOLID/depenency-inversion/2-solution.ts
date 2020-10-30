@@ -1,8 +1,13 @@
+interface ILogger {
+  log() :void
+}
+
 class CalorieTracker {
   private maxCalories: number
   private currentCalories: number
 
-  constructor (maxCalories: number) {
+  constructor (logger: ILogger) {
+    this.logger = new logger()
     this.maxCalories = maxCalories
     this.currentCalories = 0
   }
@@ -11,12 +16,24 @@ class CalorieTracker {
   trackCalories(caloriesCount) {
     this. currentCalories += caloriesCount
     if (this.currentCalories > this.maxCalories)
-      this.logCaloriesSurplus()
+      this.logger.log()
   }
 
   // how we log
-  private logCaloriesSurplus() {
-    console.log('Max calories exceeded')
+
+}
+
+/// CT -> console logger
+/// CT -> logger <- console logger
+
+class ConsoleLogger implements ILogger {
+  log(message: string) {
+    console.log(message)
+  }
+}
+class EmailLogger implements ILogger {
+  log(message: string) {
+    // email
   }
 }
 

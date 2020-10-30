@@ -17,10 +17,10 @@ function printQuizA (questions: Array<QuestionA>) {
       case 'text':
         console.log(`Answer: __________`)
         break
-      // case 'range':
-      //   console.log(`Min: _________`)
-      //   console.log(`Max: _________`)
-      // break
+      case 'range':
+        console.log(`Min: _________`)
+        console.log(`Max: _________`)
+      break
     }
     console.log('')
   })
@@ -34,11 +34,11 @@ const questionsA:Array<QuestionA> = [
   {
     type: 'text',
     description: `Argue why should/shouldn't you follow it.`
+  },
+  {
+    type: 'range',
+    description: `What is the limit?`
   }
-  // {
-  //   type: 'range',
-  //   description: `What is the limit?`
-  // }
 ]
 
 printQuizA(questionsA)
