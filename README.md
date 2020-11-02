@@ -145,9 +145,9 @@ explain a compl task
 - [x] type and interface !diff                            (20m - 20m)
 custom data type and type pseudonym
 - duck typing protect value(защитники типов)              (30m - 1h 20m)
-- generics: ternary operator, restricted by enum          (1h 30m -)
+- generics: ternary operator, restricted by enum          (1h 30m - 2h)
 - metadata in Reflect, what for?                          (50m -)
-- types import js in browser(deffer, async)
+- types import js in browser(deffer, async)               (10m - 10m)
 - browserify
 ---
 
