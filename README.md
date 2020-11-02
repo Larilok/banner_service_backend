@@ -137,15 +137,18 @@ explain a compl task
 - [x] diff '==' and '==='                                 (10m - 30m)
 - [x] function (apply, caller, bind)                      (15m - 40m)
 - [x] lodash(funcs desc, modules)                         (1h - 30m)
-- [x] typescript files for type delc + create d.ts        (30m - ) +50m +4h + 50m
-- dependency injection(none, commonJs, amd, ES6)          (30m - 30m)
-- decl func in .d.ts and implement in .ts file            (15m - 15m)
-- SOL(I!)D                                                (30m -)
+- [x] typescript files for type delc + create d.ts        (30m - ) +50m +4h +50m
+- [x] dependency injection(none, commonJs, amd, ES6)      (30m - 30m)
+- [x] decl func in .d.ts and implement in .ts file        (15m - 15m)
+- [x] SOL(I!)D                                            (30m - 1h 30m)
+- [] refactor the structure of the project                (30m - 25m)
 - type and interface !diff                                (20m -)
-- duck typing protect value(защитники типов)              (30m -)
+custom data type and type pseudonym
+- duck typing protect value(защитники типов)              (30m -) 20m
 - generics: ternary operator, restricted by enum          (1h 30m -)
 - metadata in Reflect, what for?                          (50m -)
-- refactor the structure of the project                   (30m - 25m)
+- types import js in browser(deffer, async)
+- browserify
 ---
 
 ## Theory
