@@ -142,9 +142,9 @@ explain a compl task
 - [x] decl func in .d.ts and implement in .ts file        (15m - 15m)
 - [x] SOL(I!)D                                            (30m - 1h 30m)
 - [] refactor the structure of the project                (30m - 25m)
-- type and interface !diff                                (20m -)
+- [x] type and interface !diff                            (20m - 20m)
 custom data type and type pseudonym
-- duck typing protect value(защитники типов)              (30m -) 20m
+- duck typing protect value(защитники типов)              (30m - 1h 20m)
 - generics: ternary operator, restricted by enum          (1h 30m -)
 - metadata in Reflect, what for?                          (50m -)
 - types import js in browser(deffer, async)
