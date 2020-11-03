@@ -147,7 +147,7 @@ custom data type and type pseudonym
 - [x] duck typing protect value(защитники типов)          (30m - 1h 20m)
 - [x] generics: ternary operator, restricted by enum      (1h 30m - 2h)
 - [x] types import js in browser(deffer, async)           (10m - 10m)
-- metadata in Reflect, what for?                          (50m -)
+- metadata in Reflect, what for?                          (50m - 1h 30m)
 - standard design patterns (банда 4 GoF)                  (3h -)
 - mixins and inheritance
 
