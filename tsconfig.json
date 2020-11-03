@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-      "module": "es6",
+      "module": "commonjs",
       "esModuleInterop": true,
-      "target": "es3",
+      "target": "es6",
       "noImplicitAny": true,
       "moduleResolution": "node",
       "outDir": "dist",
       "baseUrl": ".",
       "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
       "paths": {
           "*": [
               "node_modules/*",
