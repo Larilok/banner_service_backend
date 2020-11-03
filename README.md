@@ -144,10 +144,13 @@ explain a compl task
 - [] refactor the structure of the project                (30m - 25m)
 - [x] type and interface !diff                            (20m - 20m)
 custom data type and type pseudonym
-- duck typing protect value(защитники типов)              (30m - 1h 20m)
-- generics: ternary operator, restricted by enum          (1h 30m - 2h)
+- [x] duck typing protect value(защитники типов)          (30m - 1h 20m)
+- [x] generics: ternary operator, restricted by enum      (1h 30m - 2h)
+- [x] types import js in browser(deffer, async)           (10m - 10m)
 - metadata in Reflect, what for?                          (50m -)
-- types import js in browser(deffer, async)               (10m - 10m)
+- standard design patterns (банда 4 GoF)                  (3h -)
+- mixins and inheritance
+
 - browserify
 ---
 
