@@ -1,18 +1,21 @@
 import 'reflect-metadata'
 
 function logType(target: any, key: string) {
+  console.log(Reflect.getOwnMetadataKeys(target, key))
   const t = Reflect.getMetadata('design:type', target, key)
   console.log(`${key} type: ${t.name}`)
 }
 
 function logParamTypes(target: any, key: string) {
+  console.log(Reflect.getOwnMetadataKeys(target))
   const types = Reflect.getMetadata('design:paramtypes', target, key)
   const s = types.map((a:any) => a.name).join()
   console.log(`${key} param types: ${s}`)
 } 
 
 function logReturnType(target: any, key: string) {
-  const t = Reflect.getMetadata('design:returntype', target, key);
+  const t = Reflect.getMetadata('design:returntype', target, key)
+  // console.log(t)
   console.log(`${key} return type: ${t.name}`)
 } 
 
@@ -32,14 +35,15 @@ function validate<T>(
 }
 
 class Greeter {
-  @logType
-  public property = 'property'
+  // @logType
+  public property: string = 'property'
 
   // @logReturnType
   greeting () {
     return 'Hello, ' + this.hello
   }
 
+  // @logType
   hello: string
 
   constructor (m: string) {
@@ -47,22 +51,21 @@ class Greeter {
   }
 
   @logParamTypes
+  @logReturnType
   @logType
-  greet (a:any, name:string) {
+  greet (a:any, name:string): string {
     return 'Hello, ' + name
   }
-
 
   get getHello () {
     return this.hello
   }
-
 
   get getProperty () {
     return this.property
   }
 }
 
-console.log(Reflect.getOwnMetadataKeys(Greeter))
+// console.log(Reflect.getOwnMetadataKeys(Greeter))
 
-console.log(Reflect.getOwnMetadata('design:paramtypes', Greeter))
+// console.log(Reflect.getOwnMetadata('design:paramtypes', Greeter))

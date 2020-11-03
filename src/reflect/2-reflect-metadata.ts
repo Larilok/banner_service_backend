@@ -1,8 +1,8 @@
 import 'reflect-metadata'
 
 class ExampleModule {
-  a:number
-  b:string
+  a: number
+  b: string
   constructor (a:number, b?:string) {
     console.log('constructor')
     this.a = a
@@ -13,6 +13,7 @@ class ExampleModule {
 }
 
 Reflect.defineMetadata('instance', new ExampleModule(5,'a'), ExampleModule)
+Reflect.defineMetadata('instance2', new ExampleModule(5,'a'), ExampleModule)
 
 console.log(Reflect.hasOwnMetadata('instance', ExampleModule))
 
