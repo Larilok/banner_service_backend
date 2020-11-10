@@ -20,6 +20,7 @@ class Prototype {
           ...this.circularReference,
           prototype: { ...this },
       };
+      console.log(clone.circularReference)
 
       return clone;
   }
