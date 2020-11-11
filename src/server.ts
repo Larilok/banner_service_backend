@@ -1,6 +1,7 @@
 import express from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import { createRoot, createSchema } from './gql/resolver'
+
 const main = async () => {
   const app = express()
   const schema = createSchema()

@@ -1,20 +1,20 @@
-import BS from 'BS'
+import { BannerInsert, BannerReturn } from '../typing'
 import knex from './knex'
 
-const getBanner = async (id:number):Promise<BS.BannerReturn[]> => {
+const getBanner = async (id:number):Promise<BannerReturn[]> => {
   return await knex.table('banners').select().where('id', id)
 }
 
-const getBannerList = async ():Promise<BS.BannerReturn[]> => {
+const getBannerList = async ():Promise<BannerReturn[]> => {
   return await knex.table('banners').select()
 }
 
-const createBanner = async (banner: BS.BannerInsert):Promise<BS.BannerReturn> => {
+const createBanner = async (banner: BannerInsert):Promise<BannerReturn> => {
   const banners = () => knex.table('banners')
   const idOfInsertedBanner = (await banners().insert(banner, ['id']) as [{id: string}])[0]
   return (await banners()
     .select()
-    .where({ id: idOfInsertedBanner.id }) as BS.BannerReturn[])[0]
+    .where({ id: idOfInsertedBanner.id }) as BannerReturn[])[0]
 }
 
 export interface IConnection {

@@ -1,23 +1,21 @@
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
-
-import BS from 'BS'
-
 import BannersTable from '../db/queries'
+import { IBanner, IAddBanner } from '../typing'
 
-export const createSchema: BS.createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
+export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
-export const createRoot: BS.createRoot = async () => {
+export const createRoot = async () => {
   const queriesInterface = await BannersTable.createQueriesInterface()
   return {
-    banner: async ({ id }: BS.IBanner) => {
+    banner: async ({ id }: IBanner) => {
       const bannersById = await queriesInterface.getBanner(id)
       return bannersById[0]
     },
     banners: async () => {
       return await queriesInterface.getBannerList()
     },
-    addBanner: async ({ banner }: BS.IAddBanner) => {
+    addBanner: async ({ banner }: IAddBanner) => {
       return await queriesInterface.createBanner(banner)
     }
   }
