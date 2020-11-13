@@ -141,17 +141,46 @@ explain a compl task
 - [x] dependency injection(none, commonJs, amd, ES6)      (30m - 30m)
 - [x] decl func in .d.ts and implement in .ts file        (15m - 15m)
 - [x] SOL(I!)D                                            (30m - 1h 30m)
-- [] refactor the structure of the project                (30m - 25m)
 - [x] type and interface !diff                            (20m - 20m)
 custom data type and type pseudonym
 - [x] duck typing protect value(защитники типов)          (30m - 1h 20m)
 - [x] generics: ternary operator, restricted by enum      (1h 30m - 2h)
 - [x] types import js in browser(deffer, async)           (10m - 10m)
 - [x] metadata in Reflect, what for?                      (50m - 1h 30m)
-- standard design patterns (банда 4 GoF)                  (3h -)
+- [x] standard design patterns (банда 4 GoF)               (3h -) +9h
+  - creational                                            (4h+1h30m - 4h+2h) 
+  - structural                                            (4h+20m - 4h+30m) 
+  - behavioral                                            (4h+ 1h20m - 4h+3h) 
+    - Template Method
+    - State
+    - Mediator
+    - Chain of Responsibility
+- [] refactor the structure of the project                (30m - 25m+1h)
+
+
+- What is Serverless and how to setup                     (4h - 12h)
+  - how long will it be up?                               (30m -)
+  - new AWS Lambda: scheduler(every 10 min) => hello      (1h -)
+  - endpoint                                              (30m -)
+
+- serverless function events                              (2h- )
+  (!kinesis & dynamodb
+   !alexa skill
+   !alexa smart home
+   !iot)                    
+- EventBridge AWS                                         (4h -)
+
+---------------------------------------------------------------------------------
+till 11.13
+- antipatterns                                            (6h - )
+  - Cut-And-Paste Programming
+  - The Blob
+
 - mixins and inheritance
 
+
 - browserify
+- CoR where appliable
 ---
 
 ## Theory

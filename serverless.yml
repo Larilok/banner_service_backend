@@ -1,0 +1,39 @@
+service: express-serverless
+
+custom:
+  supersecret: ${ssm:/aws/reference/secretsmanager/dev/banner-service/postgres~true}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-central-1
+  stage: ${env:NODE_ENV}
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    username: ${self:custom.supersecret.username}
+    password: ${self:custom.supersecret.password}
+    host: ${self:custom.supersecret.host}
+    database: ${self:custom.supersecret.dbname}
+
+package:
+  exclude:
+    - node_modules/**
+    - src/**
+    - prepare-layer.sh
+
+layers:
+  nodeModules:
+    path: layer
+    compatibleRuntimes:
+      - nodejs12.x
+
+functions:
+  app:
+    handler: dist/server.handler
+    layers:
+      - {Ref: NodeModulesLambdaLayer}
+    events:
+      - http:
+          path: /graphql
+          method: ANY
+          cors: true

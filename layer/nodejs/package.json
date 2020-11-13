@@ -6,8 +6,7 @@
       "start": "npx tsc && npx node ./dist/server.js",
       "dev-start": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts -w ./src -e ts,graphql",
       "pre-deploy": "rm -rf node_modules .serverless dist layer && npm install --production && ./prepare-layer.sh && npm run build",
-      "deploy-dev": "npm run pre-deploy && NODE_ENV=dev sls deploy",
-      "deploy-app": "NODE_ENV=dev sls deploy function -f app"
+      "deploy-dev": "npm run pre-deploy && NODE_ENV=dev sls deploy"
    },
    "dependencies": {
       "@types/express": "^4.17.8",

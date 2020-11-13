@@ -1,7 +1,7 @@
 import { buildSchema } from 'graphql'
 import { readFileSync } from 'fs'
 import BannersTable from '../db/queries'
-import { IBanner, IAddBanner } from '../typing'
+import type { IBanner, IAddBanner } from '../typing'
 
 export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 

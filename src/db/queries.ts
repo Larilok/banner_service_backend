@@ -1,4 +1,4 @@
-import { BannerInsert, BannerReturn } from '../typing'
+import type { BannerInsert, BannerReturn } from '../typing'
 import knex from './knex'
 
 const getBanner = async (id:number):Promise<BannerReturn[]> => {
