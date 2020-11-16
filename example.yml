@@ -383,18 +383,3 @@ functions:
       - cognitoUserPool:
           pool: MyUserPool
           trigger: CustomMessage
-
-
-# ----------- MSK
-
-# Amazon MSK can be used as event source for Lambda, which allows Lambda service to internally poll it for new messages and invoke corresponding Lambda functions.
-
-functions:
-  compute:
-    handler: handler.compute
-    events:
-      - msk:
-          arn: arn:aws:kafka:region:XXXXXX:cluster/MyCluster/xxxx-xxxxx-xxxx
-          topic: mytopic
-          batchSize: 1000
-          startingPosition: LATEST

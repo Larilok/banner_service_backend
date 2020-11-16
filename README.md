@@ -173,6 +173,14 @@ custom data type and type pseudonym
    !iot)                    
 - EventBridge AWS                                         (4h -)
 
+- WebSocket what for?                                     ()
+- SNS, SQS examples                                       ()
+- Load balancers in AWS(how to determine when to branch,
+ examples)                                                ()
+- CloudWatch
+- CDN(cloudFront)
+- Amazon Cognito
+
 ---------------------------------------------------------------------------------
 till 11.13
 - antipatterns                                            (6h - )
