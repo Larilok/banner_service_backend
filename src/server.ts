@@ -15,4 +15,5 @@ const main = async () => {
 }
 main()
 
-module.exports.handler = sls(app)
+const handler = sls(app)
+export { handler }

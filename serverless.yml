@@ -8,6 +8,8 @@ provider:
   runtime: nodejs12.x
   region: eu-central-1
   stage: ${env:NODE_ENV}
+  tracing:
+    lambda: true
   environment:
     NODE_ENV: ${env:NODE_ENV}
     username: ${self:custom.supersecret.username}
@@ -16,6 +18,7 @@ provider:
     database: ${self:custom.supersecret.dbname}
 
 package:
+  individually: true
   exclude:
     - node_modules/**
     - src/**
@@ -30,10 +33,23 @@ layers:
 functions:
   app:
     handler: dist/server.handler
+    tracing: true
     layers:
       - {Ref: NodeModulesLambdaLayer}
+    package:
     events:
       - http:
           path: /graphql
           method: ANY
           cors: true
+  cron: 
+    handler: dist/scheduler/handler.run
+    tracing: false
+    package: 
+      exclude: 
+        - ./**
+        - '!./dist/scheduler/handler.js'
+    events: 
+      # - schedule: rate(10 minutes)
+      - schedule: cron(0/10 * * * ? *)
+      #  minutes| hours| Day of month| Month| Day of week| Year| 

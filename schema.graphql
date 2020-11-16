@@ -35,9 +35,3 @@ type Query {
   """List of banners"""
   banners: [BannerReturn]
 }
-
-fragment FBannerReturn on BannerReturn {
-  id,
-  title,
-  pictureUrl
-}
