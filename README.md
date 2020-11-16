@@ -155,15 +155,18 @@ custom data type and type pseudonym
     - State
     - Mediator
     - Chain of Responsibility
-- [] refactor the structure of the project                (30m - 25m+1h)
 
+---------------------------------------------------------------------------------
+- [] refactor the structure of the project                    (30m - 25m+1h)
 
-- What is Serverless and how to setup                     (4h - 12h)
-  - how long will it be up?                               (30m -)
-  - new AWS Lambda: scheduler(every 10 min) => hello      (1h -)
-  - endpoint                                              (30m -)
+- [x] What is Serverless and how to setup                     (4h - 12h)
+  - [x] how long will it be up?                               (30m -)
+  <!-- timeout in Function settings up to 15 min -->
 
-- serverless function events                              (2h- )
+- [x] deploy current project and access via curl              ()
+- [x] deploy new AWS Lambda: scheduler(every 10 min) => hello (1h -)
+
+- serverless function events                                  (2h- )+2h
   (!kinesis & dynamodb
    !alexa skill
    !alexa smart home
