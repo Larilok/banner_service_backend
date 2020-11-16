@@ -155,12 +155,26 @@ custom data type and type pseudonym
     - State
     - Mediator
     - Chain of Responsibility
-- [] refactor the structure of the project                (30m - 25m)
-
-- What is Serverless and how to setup                     (4h -) 
-
 
 ---------------------------------------------------------------------------------
+- [] refactor the structure of the project                    (30m - 25m+1h)
+
+- [x] What is Serverless and how to setup                     (4h - 12h)
+  - [x] how long will it be up?                               (30m -)
+  <!-- timeout in Function settings up to 15 min -->
+
+- [x] deploy current project and access via curl              ()
+- [x] deploy new AWS Lambda: scheduler(every 10 min) => hello (1h -)
+
+- serverless function events                                  (2h- )+2h
+  (!kinesis & dynamodb
+   !alexa skill
+   !alexa smart home
+   !iot)                    
+- EventBridge AWS                                         (4h -)
+
+---------------------------------------------------------------------------------
+till 11.13
 - antipatterns                                            (6h - )
   - Cut-And-Paste Programming
   - The Blob

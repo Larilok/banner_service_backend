@@ -1,0 +1,400 @@
+# --- ApiGateway aka REST api
+
+# API Gateway
+
+# Lambda Proxy Integration
+
+#   Simple HTTP Endpoint
+#   Example "LAMBDA-PROXY" event (default)
+#   HTTP Endpoint with Extended Options
+#   Enabling CORS
+#   HTTP Endpoints with AWS_IAM Authorizers
+#   HTTP Endpoints with Custom Authorizers
+#   HTTP Endpoints with operationId
+#   Catching Exceptions In Your Lambda Function
+#   Setting API keys for your Rest API
+#   Configuring endpoint types
+#   Request Parameters
+#   Request Schema Validators
+#   Setting source of API key for metering requests
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors:
+            headers: '*'
+
+## HTTP Endpoints with AWS_IAM Authorizers
+
+functions:
+  create:
+    handler: posts.create
+    events:
+      - http:
+          path: posts/create
+          method: post
+          authorizer: authorizerFunc
+          # authorizer: aws_iam
+          # authorizer:
+            # arn: xxx:xxx:Lambda-Name
+            # managedExternally: false
+            # resultTtlInSeconds: 0
+            # identitySource: method.request.header.Authorization
+            # identityValidationExpression: someRegex
+  authorizerFunc:
+    handler: handler.authorizerFunc
+
+## Request Parameters
+
+functions:
+  create:
+    handler: posts.post_detail
+    events:
+      - http:
+          path: posts/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+
+# ------------------- http api
+
+#HTTP APIs are a special flavored API Gateway implementation which offer more features and improved performance. 
+#They have some benefits and drawbacks compared to the traditional API Gateway REST APIs.
+
+functions:
+  simple:
+    handler: handler.simple
+    events:
+      - httpApi: 'PATCH /elo'
+  extended:
+    handler: handler.extended
+    events:
+      - httpApi:
+          method: POST
+          path: /post/just/to/this/path
+
+# params 
+functions:
+  params:
+    handler: handler.params
+    events:
+      - httpApi:
+          method: GET
+          path: /get/for/any/{param}
+
+# authorizer 
+#JWT Authorizers
+
+# -------------------------------------- websocket 
+
+#Websockets make it possible to add support for a bi-directional communication channel between clients and servers.
+#Connection channels are kept alive and are re-used to exchange messages back-and-forth.
+
+functions:
+  helloHandler:
+    handler: handler.helloHandler
+    events:
+      - websocket:
+          route: hello
+          routeResponseSelectionExpression: $default
+
+#The API-Gateway provides 4 types of routes which relate to the lifecycle of a ws-client:
+# $connect called on connect of a ws-client
+# $disconnect called on disconnect of a ws-client (may not be called in some situations)
+# $default called if there is no handler to use for the event
+# custom routes - called if the route name is specified for a handler
+
+service: serverless-ws-test
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  websocketsApiName: custom-websockets-api-name
+  websocketsApiRouteSelectionExpression: $request.body.action # custom routes are selected by the value of the action property in the body
+
+functions:
+  connectionHandler:
+    handler: handler.connectionHandler
+    events:
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $disconnect
+  defaultHandler:
+    handler: handler.defaultHandler
+    events:
+      - websocket: $default #simple event definition without extra route property
+  customFooHandler:
+    handler: handler.fooHandler
+    events:
+      - websocket:
+          route: foo # will trigger if $request.body.action === "foo"
+
+
+# ----------------- s3
+
+# create a photos bucket which fires the resize function when an object is added or modified inside the bucket
+functions:
+  resize:
+    handler: resize.handler
+    events:
+      - s3: photos
+
+# event 
+functions:
+  users:
+    handler: users.handler
+    events:
+      - s3:
+          bucket: photos
+          event: s3:ObjectRemoved:*
+
+# rules 
+
+functions:
+  users:
+    handler: users.handler
+    events:
+      - s3:
+          bucket: photos
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .jpg
+
+
+# -------------- schedule
+
+# Creates an EventBridge rule and subscribes to this event
+
+events:
+  - schedule:
+      name: your-scheduled-rate-event-name
+      description: 'your scheduled rate event description'
+      rate: rate(2 hours)
+      enabled: false
+
+
+# ----------------  SNS
+
+# Amazon SNS is a managed publish/subscribe (also known as “pub/sub”) service from Amazon Web Services. 
+# SNS implements a "push" architecture—all subscribers receive the messages that are published to a topic
+
+functions:
+  dispatcher:
+    handler: dispatcher.dispatch
+    events:
+      - sns: dispatch
+
+# filter
+functions:
+  pets:
+    handler: pets.handler
+    events:
+      - sns:
+          topicName: pets
+          filterPolicy:
+            pet:
+              - dog
+              - cat
+
+# ---------------- SQS
+
+# implements a "pull" architecture, in which clients pull messages from a shared queue
+# the compute function should be triggered whenever there are messages in the given SQS Queue.
+
+functions:
+  compute:
+    handler: handler.compute
+    events:
+      - sqs:
+          arn: arn:aws:sqs:region:XXXXXX:myQueue
+          batchSize: 10
+
+# ---------------- application load balancer
+
+# Application Load Balancers can be used to re-route requests when certain traffic patterns are met.
+# While traffic can be routed to services such as EC2 it can also be routed to Lambda functions which can in turn be used process incoming requests.
+
+functions:
+  albEventConsumer:
+    handler: handler.hello
+    events:
+      - alb:
+          listenerArn: arn:aws:elasticloadbalancing:us-east-1:12345:listener/app/my-load-balancer/50dc6c495c0c9188/
+          priority: 1
+          conditions:
+            host: example.com
+            path: /hello
+            method:
+              - POST
+              - PATCH
+            host:
+              - example.com
+              - example2.com
+            header:
+              name: foo
+              values:
+                - bar
+            query:
+              bar: true
+            ip:
+              - fe80:0000:0000:0000:0204:61ff:fe9d:f156/6
+              - 192.168.0.1/0
+
+# ---------------- CloudWatch Event
+
+# Amazon Augmented AI Events
+# Application Auto Scaling Events
+# AWS Batch Events
+# Amazon CloudWatch Events Scheduled Events
+# Amazon Chime Events
+# Events from CloudWatch
+# CodeBuild Events
+# CodeCommit Events
+# AWS CodeDeploy Events
+# CodePipeline Events
+# AWS Config Events
+# Amazon EBS Events
+# Amazon EC2 Auto Scaling Events
+# Amazon EC2 Instance Rebalance Recommendation Events
+# Amazon EC2 Spot Instance Interruption Events
+# Amazon EC2 State Change Events
+# Amazon Elastic Container Registry Events
+# Amazon Elastic Container Service Events
+# AWS Elemental MediaConvert Events
+# AWS Elemental MediaPackage Events
+# AWS Elemental MediaStore Events
+# Amazon EMR Events
+# Amazon GameLift Event
+# AWS Glue Events
+# AWS Ground Station Events
+# Amazon GuardDuty Events
+# AWS Health Events
+# AWS KMS Events
+# Amazon Macie Classic Events
+# Amazon Macie Events
+# AWS Management Console Sign-in Events
+# AWS OpsWorks Stacks Events
+# SageMaker Events
+# AWS Security Hub Events
+# AWS Server Migration Service Events
+# AWS Systems Manager Events
+# AWS Step Functions Events
+# Tag Change Events on AWS Resources
+# AWS Trusted Advisor Events
+# Amazon WorkSpaces Events
+# Events Delivered Via CloudTrail
+
+functions:
+  myCloudWatch:
+    handler: myCloudWatch.handler
+    events:
+      - cloudwatchEvent:
+          name: 'my-cloudwatch-event-name'
+          event:
+            source:
+              - 'aws.ec2'
+            detail-type:
+              - 'EC2 Instance State-change Notification'
+            detail:
+              state:
+                - pending
+
+
+# ----------------- CloudWatch Log
+
+# This will enable your Lambda function to be called by a Log Stream.
+
+functions:
+  myCloudWatchLog:
+    handler: myCloudWatchLog.handler
+    events:
+      - cloudwatchLog: '/aws/lambda/hello'
+
+# ----------------- EventBridge Event
+
+# Amazon EventBridge is a serverless event bus that makes it easy to connect applications together using data from your own applications
+
+# The eventBridge event types helps setting up AWS Lambda functions to react to events coming in via the EventBridge
+
+## Setting up event pattern matching
+functions:
+  myFunction:
+    handler: index.handler
+    events:
+      - eventBridge:
+          pattern:
+            source:
+              - aws.cloudformation
+            detail-type:
+              - AWS API Call via CloudTrail
+            detail:
+              eventSource:
+                - cloudformation.amazonaws.com
+
+
+# ----------------- CloudFront
+
+# Lambda@Edge has four options when the Lambda function is triggered
+# 
+#   viewer-request, when the CloudFront first receives the request from the client
+#   origin-request, before the request to the origin service
+#   origin-response, when CloudFront receives the response from the origin service
+#   viewer-response, before the response returned to the client
+
+# Amazon CloudFront is a content delivery network (CDN) service that allows Lambda functions to be executed at edge locations.
+
+functions:
+  myLambdaAtEdge:
+    handler: myLambdaAtEdge.handler
+    events:
+      - cloudFront:
+          eventType: viewer-response
+          origin: s3://bucketname.s3.amazonaws.com/files
+
+
+# -------------- Cognito User Pool
+
+# A user pool is a user directory in Amazon Cognito. 
+
+# PreSignUp
+# PreTokenGeneration
+# UserMigration
+# VerifyAuthChallengeResponse
+
+# This will create a Cognito User Pool with the specified name. You can reference the same pool multiple times.
+functions:
+  preSignUp:
+    handler: preSignUp.handler
+    events:
+      - cognitoUserPool:
+          pool: MyUserPool
+          trigger: PreSignUp
+  customMessage:
+    handler: customMessage.handler
+    events:
+      - cognitoUserPool:
+          pool: MyUserPool
+          trigger: CustomMessage
+
+
+# ----------- MSK
+
+# Amazon MSK can be used as event source for Lambda, which allows Lambda service to internally poll it for new messages and invoke corresponding Lambda functions.
+
+functions:
+  compute:
+    handler: handler.compute
+    events:
+      - msk:
+          arn: arn:aws:kafka:region:XXXXXX:cluster/MyCluster/xxxx-xxxxx-xxxx
+          topic: mytopic
+          batchSize: 1000
+          startingPosition: LATEST
