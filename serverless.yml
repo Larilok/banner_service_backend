@@ -51,5 +51,5 @@ functions:
         - '!./dist/scheduler/handler.js'
     events: 
       # - schedule: rate(10 minutes)
-      - schedule: cron(0/10 * * * ? *)
+      - schedule: cron(0 * * * ? *)
       #  minutes| hours| Day of month| Month| Day of week| Year| 
