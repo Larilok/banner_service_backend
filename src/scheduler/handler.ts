@@ -10,6 +10,7 @@ const run: Handler = (event: any, context: Context, callback: ProxyCallback) => 
   // callback(undefined, response)
   const time = new Date();
   console.log(`Your cron function "${context.functionName}" ran at ${time}`);
+  console.log(event)
 }
 
 export { run }

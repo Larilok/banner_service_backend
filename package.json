@@ -8,7 +8,7 @@
       "pre-deploy": "rm -rf dist && npm run build && rm -rf node_modules .serverless layer && npm install --production && ./prepare-layer.sh ",
       "deploy-dev": "npm run pre-deploy && NODE_ENV=dev sls deploy",
       "deploy-app": "NODE_ENV=dev sls deploy function -f app",
-      "deploy-scheduler": "rm -rf dist && npx tsc --outDir dist/ --module commonjs --target es6 src/scheduler/handler.ts && NODE_ENV=dev sls deploy function -f cron"
+      "deploy-scheduler": "rm -rf dist && npx tsc --outDir dist/scheduler --module commonjs --target es6 src/scheduler/handler.ts && NODE_ENV=dev sls deploy function -f cron"
    },
    "dependencies": {
       "express": "^4.17.1",
