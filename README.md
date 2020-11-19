@@ -175,10 +175,10 @@ custom data type and type pseudonym
 - [x] SNS, SQS examples                                   (40m - 1h20m)
 - [x] Load balancers in AWS(how to determine when to branch,
  examples)                                                (40m - 1h40m)
-- CloudWatch                                              !(40m - 20m+)
+- [x] CloudWatch                                          !(40m - 20m+2h20m)
+- Amazon Cognito                                          !(1h30m -3h)
+- EventBridge AWS                                         !(2h -)
 - CDN(cloudFront)                                         (40m -)
-- Amazon Cognito                                          !(40m -)
-- EventBridge AWS                                         !(4h -)
 
 - Lambda service desc(duration, amount, cost)             (1h30m - )
   vs kuber cluster
