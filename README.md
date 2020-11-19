@@ -124,8 +124,8 @@ Expected result
   - test each index(~10min for each)                   (50m -)
   - test when query uses index and when not            (1h 40m -)
 
--- spare time
-how to optimize a query:                               (4h -)
+-- [x] spare time
+how to optimize a query:                               (4h - 2h)
  - watch lecture about query optimization              (2h -)
  - practice                                            (30m -)
 
@@ -157,30 +157,31 @@ custom data type and type pseudonym
     - Chain of Responsibility
 
 ---------------------------------------------------------------------------------
-- [] refactor the structure of the project                    (30m - 25m+1h)
-
 - [x] What is Serverless and how to setup                     (4h - 12h)
   - [x] how long will it be up?                               (30m -)
   <!-- timeout in Function settings up to 15 min -->
-
-- [x] deploy current project and access via curl              ()
-- [x] deploy new AWS Lambda: scheduler(every 10 min) => hello (1h -)
-
-- serverless function events                                  (2h- )+2h
+- [x] deploy current project and access via curl              (1h - 3h)
+- [x] deploy new AWS Lambda: scheduler(every 10 min) => hello (1h - 1h)
+- [x] serverless function events                              (2h - 4h)+2h
   (!kinesis & dynamodb
    !alexa skill
    !alexa smart home
-   !iot)                    
-- EventBridge AWS                                         (4h -)
+   !iot) 
+- [] refactor the structure of the project                    (30m - 25m+1h)
 
-- WebSocket what for?                                     (40m -)
-- SNS, SQS examples                                       (40m -)
-- Load balancers in AWS(how to determine when to branch,
- examples)                                                (40m -)
-- CloudWatch
+
+
+- [x] WebSocket what for?                                 (40m - 30m)
+- [x] SNS, SQS examples                                   (40m - 1h20m)
+- [x] Load balancers in AWS(how to determine when to branch,
+ examples)                                                (40m - 1h40m)
+- CloudWatch                                              !(40m - 20m+)
 - CDN(cloudFront)                                         (40m -)
-- Amazon Cognito                                          (40m -)
+- Amazon Cognito                                          !(40m -)
+- EventBridge AWS                                         !(4h -)
 
+- Lambda service desc(duration, amount, cost)             (1h30m - )
+  vs kuber cluster
 ---------------------------------------------------------------------------------
 till 11.13
 - antipatterns                                            (6h - )

@@ -1,4 +1,3 @@
-
 abstract class Command {
     protected  app: Application
     protected  editor: Editor

@@ -181,7 +181,7 @@ events:
       enabled: false
 
 
-# ----------------  SNS
+# ----------------  SNS (Amazon Simple Notification Service)
 
 # Amazon SNS is a managed publish/subscribe (also known as “pub/sub”) service from Amazon Web Services. 
 # SNS implements a "push" architecture—all subscribers receive the messages that are published to a topic
@@ -297,7 +297,6 @@ functions:
     handler: myCloudWatch.handler
     events:
       - cloudwatchEvent:
-          name: 'my-cloudwatch-event-name'
           event:
             source:
               - 'aws.ec2'
@@ -306,6 +305,7 @@ functions:
             detail:
               state:
                 - pending
+          enabled: false
 
 
 # ----------------- CloudWatch Log
