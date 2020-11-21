@@ -1,7 +1,5 @@
 A backend of application to manage banners
 =====
-import _ from 'lodash'
-const _ = require('lodash')
 ## Technologies
 
 - Typescript
@@ -176,18 +174,18 @@ custom data type and type pseudonym
 - [x] Load balancers in AWS(how to determine when to branch,
  examples)                                                (40m - 1h40m)
 - [x] CloudWatch                                          !(40m - 20m+2h20m)
-- Amazon Cognito                                          !(1h30m -3h)
-- EventBridge AWS                                         !(2h -)
-- CDN(cloudFront)                                         (40m -)
+- [x] Amazon Cognito                                      !(1h30m -3h)
+- [x] EventBridge AWS                                     !(2h -2h)
+- [x] CDN(cloudFront)                                     (1h40m - 1h40m)
+- [x] aws lambda(event, context, callback)                (30m -)
+- [x] CloudWatch deep dive(metrics source)                (40m - 1h20m)
 
 - Lambda service desc(duration, amount, cost)             (1h30m - )
   vs kuber cluster
----------------------------------------------------------------------------------
-till 11.13
 - antipatterns                                            (6h - )
   - Cut-And-Paste Programming
   - The Blob
-
+---------------------------------------------------------------------------------
 - mixins and inheritance
 
 
