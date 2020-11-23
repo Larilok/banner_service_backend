@@ -55,6 +55,12 @@ Context properties
 The data will depend on the event source connected to your Lambda function.
 https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html#eventsources-sns
 
+ - eventSource
+ - eventSourceARN
+ - awsRegion
+ - messageAttributes
+ 
+
 ## Callback
 For non-async handlers, function execution continues until the event loop is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead.
 ```

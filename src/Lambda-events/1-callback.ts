@@ -1,12 +1,15 @@
-const checkAuth = callback => {
+interface ICallback<T1, T2 = void> {
+  (error: null|Error, param?: T1): T2
+}
+
+const checkAuth1 = (callback: ICallback<{ isAuth:boolean }>): void => {
   // In reality, you of course don't have a timer but will probably reach out to a server
   setTimeout(() => {
     callback(null, { isAuth: true })
   }, 2000)
-  return 'Value'
 }
 
-const getUser = (authInfo, callback) => {
+const getUser1 = (authInfo: { isAuth: boolean }, callback: ICallback<{ name:string }>):void => {
   if (!authInfo.isAuth) {
     callback(new Error('Not auth'))
     return
@@ -16,13 +19,11 @@ const getUser = (authInfo, callback) => {
   }, 2000)
 }
 
-const res = checkAuth((err, authInfo) => {
+checkAuth1((err, authInfo) => {
   if (err) throw err
-  getUser(authInfo, (err, user) => {
+  getUser1(authInfo, (err, user) => {
     if (err) throw err
     console.log(user)
     console.log(user.name)
   })
-})
-
-console.dir({ res })
+}

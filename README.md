@@ -176,15 +176,19 @@ custom data type and type pseudonym
 - [x] CloudWatch                                          !(40m - 20m+2h20m)
 - [x] Amazon Cognito                                      !(1h30m -3h)
 - [x] EventBridge AWS                                     !(2h -2h)
+
 - [x] CDN(cloudFront)                                     (1h40m - 1h40m)
-- [x] aws lambda(event, context, callback)                (30m -)
+- [x] aws lambda(event, context, callback)                (30m - 30m + 1h30m)
 - [x] CloudWatch deep dive(metrics source)                (40m - 1h20m)
 
 - Lambda service desc(duration, amount, cost)             (1h30m - )
   vs kuber cluster
+
 - antipatterns                                            (6h - )
   - Cut-And-Paste Programming
-  - The Blob
+  - The God Object
+  
+- S3 buckets                                              (2h - )
 ---------------------------------------------------------------------------------
 - mixins and inheritance
 
