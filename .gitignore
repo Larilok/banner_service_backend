@@ -2,3 +2,4 @@ dist/*
 modules-dist/
 node_modules/
 .env
+layer/
