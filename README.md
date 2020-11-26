@@ -188,7 +188,14 @@ custom data type and type pseudonym
   - Cut-And-Paste Programming
   - The God Object
   
-- S3 buckets                                              (2h - )
+- [x] S3 buckets                                          (2h - 2h30m)
+
+- [] pricing and params of S3 bucket type                 (30m - 1h)
+- [] logs request costs, CWDashboard costs                   (1h - 1h30m)
+- upload file to S3 through AWS Lambda                    (1h - )
+- CORS with example                                       (1h30m)
+
+- upload to git
 ---------------------------------------------------------------------------------
 - mixins and inheritance
 

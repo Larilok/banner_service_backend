@@ -21,7 +21,12 @@ const getUser = (auth) => {
 async function fetchUser() {
   const auth = await checkAuth(); // <- async operation
   const user = await getUser(auth); // <- async operation
-  return user;
+  return user
 }
 
-fetchUser().then((user) => console.log(user.name));
+fetchUser()
+  .then((user) => user.name)
+  .then((name) => console.log(name))
+  .catch((err) => {
+    console.log(err)
+  })

@@ -6,6 +6,7 @@ Lambda service
 Free Tier
 - 400,000 seconds of compute time per month for AWS Lambda
 - 1,000,000 free requests per month for AWS Lambda
+
 Pricing
 - Requests	$0.20 per 1M requests
 - Duration	$0.0000166667 for every GB-second
