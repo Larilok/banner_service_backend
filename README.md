@@ -181,10 +181,10 @@ custom data type and type pseudonym
 - [x] aws lambda(event, context, callback)                (30m - 30m + 1h30m)
 - [x] CloudWatch deep dive(metrics source)                (40m - 1h20m)
 
-- Lambda service desc(duration, amount, cost)             (1h30m - )
+- [x] Lambda service desc(duration, amount, cost)             (1h30m - )
   vs kuber cluster
 
-- antipatterns                                            (6h - )
+- [] antipatterns                                            (6h - )
   - Cut-And-Paste Programming
   - The God Object
   
@@ -192,12 +192,13 @@ custom data type and type pseudonym
 
 - [] pricing and params of S3 bucket type                 (30m - 1h)
 - [] logs request costs, CWDashboard costs                   (1h - 1h30m)
-- upload file to S3 through AWS Lambda                    (1h - )
-- CORS with example                                       (1h30m)
+- [x] upload file to S3                                      (1h - 1h)
+  - through AWS Lambda                                   (1h - 3h)
+- CORS with example                                       (1h30m -)
+- mixins and inheritance                                  (1h30m -)
 
-- upload to git
+- [x] upload to git
 ---------------------------------------------------------------------------------
-- mixins and inheritance
 
 
 - browserify
