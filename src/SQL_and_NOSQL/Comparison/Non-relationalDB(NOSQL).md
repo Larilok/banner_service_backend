@@ -38,3 +38,5 @@ The possibilities for graph NoSQL databases are infinite, and with the data we c
 Instead of the Structure Query Language (SQL) used by relational databases, the NoSQL database uses Object-relational-mapping (ORM).  The concept of ORM is the ability to write queries using your preferred programming language.  Some of the more popular ORMs are Java, Javascript, .NET and PHP.
 
 ![image](example_graph.png)
+
+Cypher, Neo4j
