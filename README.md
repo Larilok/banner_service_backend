@@ -207,6 +207,9 @@ custom data type and type pseudonym
 - Redis(theory, use cases)                                    (3h)
   - add info to redis                                         (2h)
   - extract from redis
+  
+- sharding(Multi-AZ)
+- commands to work with data in redis
 
 - [x] upload to git
 ---------------------------------------------------------------------------------
