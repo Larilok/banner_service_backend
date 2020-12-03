@@ -42,14 +42,3 @@ functions:
           path: /graphql
           method: ANY
           cors: true
-  cron: 
-    handler: dist/scheduler/handler.run
-    tracing: false
-    package: 
-      exclude: 
-        - ./**
-        - '!./dist/scheduler/handler.js'
-    events: 
-      # - schedule: rate(10 minutes)
-      - schedule: cron(0 * * * ? *)
-      #  minutes| hours| Day of month| Month| Day of week| Year| 
