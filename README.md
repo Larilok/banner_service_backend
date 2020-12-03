@@ -184,18 +184,29 @@ custom data type and type pseudonym
 - [x] Lambda service desc(duration, amount, cost)             (1h30m - )
   vs kuber cluster
 
-- [] antipatterns                                            (6h - )
+- [x] antipatterns                                            (6h - )
   - Cut-And-Paste Programming
   - The God Object
   
 - [x] S3 buckets                                          (2h - 2h30m)
 
-- [] pricing and params of S3 bucket type                 (30m - 1h)
-- [] logs request costs, CWDashboard costs                   (1h - 1h30m)
+- [x] pricing and params of S3 bucket type                 (30m - 1h)
+- [x] logs request costs, CWDashboard costs                   (1h - 1h30m)
 - [x] upload file to S3                                      (1h - 1h)
   - through AWS Lambda                                   (1h - 3h)
-- CORS with example                                       (1h30m -)
-- mixins and inheritance                                  (1h30m -)
+- [x] CORS with example                                       (1h30m - 2h)
+- [x] mixins and inheritance                                  (1h30m - 2h)
+
+- GRASP                                                           (4h - 1h+4h)
+  - LowCoupling and HighCohesion
+- [x] DRY||DIE                                                    (30m - 15m)
+- [x] KISS                                                        (30m - 20m)
+- [x] YAGNI                                                       (30m - 15m)
+
+- description of SQL and NoSQL                                (30m -)
+- Redis(theory, use cases)                                    (3h)
+  - add info to redis                                         (2h)
+  - extract from redis
 
 - [x] upload to git
 ---------------------------------------------------------------------------------
@@ -203,6 +214,7 @@ custom data type and type pseudonym
 
 - browserify
 - CoR where appliable
+- FineReadre
 ---
 
 ## Theory
