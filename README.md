@@ -203,12 +203,22 @@ custom data type and type pseudonym
 - [x] KISS                                                        (30m - 20m)
 - [x] YAGNI                                                       (30m - 15m)
 
-- description of SQL and NoSQL                                (30m -)
+- description of SQL and NoSQL                                (30m - )
 - Redis(theory, use cases)                                    (3h)
+  (endpoints)
   - add info to redis                                         (2h)
   - extract from redis
   
 - sharding(Multi-AZ)
+  Sharding is a method of splitting and storing a single logical dataset in multiple databases.
+  A database can be split vertically — storing different tables & columns in a separate database, or horizontally — storing rows of a same table in multiple database nodes.
+
+  Amazon ElastiCache supports locating all of a cluster's nodes in a single or multiple Availability Zones (AZs). Further, if you elect to locate your nodes in multiple AZs (recommended), ElastiCache enables you to either choose the AZ for each node, or allow ElastiCache to choose them for you.
+
+  By locating the nodes in different AZs, you eliminate the chance that a failure, such as a power outage, in one AZ will cause your entire system to fail. Testing has demonstrated that there is no significant latency difference between locating all nodes in one AZ or spreading them across multiple AZs.
+
+  You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster.
+
 - commands to work with data in redis
 
 - [x] upload to git
@@ -217,7 +227,7 @@ custom data type and type pseudonym
 
 - browserify
 - CoR where appliable
-- FineReadre
+- FineReadrer
 ---
 
 ## Theory
