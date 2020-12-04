@@ -5,6 +5,11 @@ custom:
 
 provider:
   name: aws
+  vpc:
+    securityGroupIds:
+      - sg-fd41e380
+    subnetIds:
+      - subnet-736efe19
   runtime: nodejs12.x
   region: eu-central-1
   stage: ${env:NODE_ENV}
@@ -35,9 +40,13 @@ functions:
     tracing: true
     layers:
       - {Ref: NodeModulesLambdaLayer}
-    package:
     events:
       - http:
           path: /graphql
           method: ANY
           cors: true
+  redis:
+    handler: dist/redis.handler
+    tracing: true
+    layers:
+      - {Ref: NodeModulesLambdaLayer}

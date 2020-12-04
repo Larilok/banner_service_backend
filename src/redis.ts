@@ -1,27 +1,31 @@
-import redis from 'redis';
+import redis from 'redis'
 
-const HOST = 'redisdb.txgui8.0001.euc1.cache.amazonaws.com'
+const HOST = "test-redis.txgui8.0001.euc1.cache.amazonaws.com"
 const PORT = 6379
 
-const client = redis.createClient(PORT, HOST);
+export async function handler(event: any, context: any, cb:any) {
 
-client.on('connect', () => {
-  console.log('connected');
-  writeRedisKey('myHighScore', '1000')
-})
 
-client.on('error', (error) => console.error(error))
+  const client = redis.createClient(PORT, HOST);
 
-function writeRedisKey(keyRedis:string, value:string) {
-  client.set(keyRedis, value, (err, response) => {
-    console.log(response);
-    client.expire(keyRedis, 30);
-    readRedisKey(keyRedis)
+  client.on('connect', () => {
+    console.log('connected');
+    writeRedisKey('myHighScore', '1000')
   })
-}
 
-function readRedisKey(keyRedis:string) {
-  client.get(keyRedis, (err, res) => {
-    console.log(res)
-  })
+  client.on('error', (error) => console.error(error))
+
+  function writeRedisKey(keyRedis: string, value: string) {
+    client.set(keyRedis, value, (err, response) => {
+      console.log(response);
+      client.expire(keyRedis, 30);
+      readRedisKey(keyRedis)
+    })
+  }
+
+  function readRedisKey(keyRedis: string) {
+    client.get(keyRedis, (err, res) => {
+      console.log(res)
+    })
+  }
 }
