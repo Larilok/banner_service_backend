@@ -11,18 +11,18 @@ const server = http.createServer((req: IncomingMessage, res) => {
 export const createSchema = () => buildSchema(readFileSync('./schema.graphql').toString())
 
 export const createRoot = async () => {
-  const queriesInterface = await BannersTable.createQueriesInterface()
+  const bannersTableInterface = await BannersTable.createQueriesInterface()
   const redisInterface = await Redis.createQueriesInterface()
   return {
     banner: async ({ id }: IBanner) => {
-      const bannersById = await queriesInterface.getBanner(id)
+      const bannersById = await bannersTableInterface.getBanner(id)
       return bannersById[0]
     },
     banners: async () => {
-      return await queriesInterface.getBannerList()
+      return await bannersTableInterface.getBannerList()
     },
     addBanner: async ({ banner }: IAddBanner) => {
-      return await queriesInterface.createBanner(banner)
+      return await bannersTableInterface.createBanner(banner)
     },
     getValue: async ({ key }: any) => {
       return await redisInterface.getString(key)
