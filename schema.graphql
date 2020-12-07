@@ -8,6 +8,16 @@ input BannerInsert {
   isActive: Boolean
 }
 
+input RedisRecord {
+  key: String!
+  value: String!
+}
+
+input RedisExpire {
+  key: String!
+  seconds: Int!
+}
+
 """A banner to return from a database"""
 type BannerReturn {
   id: Int!
@@ -25,6 +35,12 @@ type BannerReturn {
 type Mutation {
   """Add a banner"""
   addBanner(banner: BannerInsert): BannerReturn
+
+  setStringRecord(record: RedisRecord): Boolean
+
+  deleteKey(key: String!): Int
+
+  expireKey(expire: RedisExpire!): Boolean
 }
 
 """Root Query"""
@@ -34,4 +50,7 @@ type Query {
 
   """List of banners"""
   banners: [BannerReturn]
+
+  """ Get string Value """
+  getStringValue(key: String!): String
 }

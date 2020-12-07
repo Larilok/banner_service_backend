@@ -6,7 +6,6 @@ custom:
 provider:
   apiGateway:
     shouldStartNameWithService: true
-
   name: aws
   vpc:
     securityGroupIds:
@@ -30,6 +29,7 @@ package:
     - node_modules/**
     - src/**
     - prepare-layer.sh
+    - layer
 
 layers:
   nodeModules:
@@ -44,12 +44,7 @@ functions:
     layers:
       - {Ref: NodeModulesLambdaLayer}
     events:
-      - http:
+    - http:
+          method: any
           path: /graphql
-          method: ANY
           cors: true
-  redis:
-    handler: dist/redis.handler
-    tracing: true
-    layers:
-      - {Ref: NodeModulesLambdaLayer}

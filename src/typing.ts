@@ -20,9 +20,19 @@ export interface BannerInsert {
 }
 
 export interface IBanner {
-  id:number
+  id: number
 }
 
 export interface IAddBanner {
-  banner:BannerInsert
+  banner: BannerInsert
+}
+
+export interface IRedisStringRecord {
+  key: string,
+  value: string
+}
+
+export interface IRedisExpire {
+  key: string,
+  seconds: number
 }

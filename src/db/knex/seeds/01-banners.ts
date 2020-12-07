@@ -1,5 +1,5 @@
 import Knex from 'knex'
-import type { BannerInsert } from '../../typing'
+import type { BannerInsert } from '../../../typing'
 import { LoremIpsum } from 'lorem-ipsum'
 
 const randomDateAndHourInRange = (start:Date, end:Date, startHour:number, endHour:number) => {

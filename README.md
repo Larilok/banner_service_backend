@@ -225,6 +225,14 @@ Redis
 
 - commands to work with data in redis
 
+- accept postman queries                      (1h -)
+
+- firebase                                    (10h -)
+  - auth                                      (4h)
+  - add events to Redis (on every set/replace, publish this event to firebase) (6h)
+  
+- JWT           (1h)
+
 - [x] upload to git
 ---------------------------------------------------------------------------------
 
