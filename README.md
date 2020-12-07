@@ -204,10 +204,14 @@ custom data type and type pseudonym
 - [x] YAGNI                                                       (30m - 15m)
 
 - description of SQL and NoSQL                                (30m - )
-- Redis(theory, use cases)                                    (3h)
+- Redis(theory, use cases)                                    (3h - 7h)
   (endpoints)
   - add info to redis                                         (2h)
   - extract from redis
+  
+Redis
+- how to get all keys
+- is the KEY exists
   
 - sharding(Multi-AZ)
   Sharding is a method of splitting and storing a single logical dataset in multiple databases.
@@ -220,6 +224,14 @@ custom data type and type pseudonym
   You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster.
 
 - commands to work with data in redis
+
+- accept postman queries                      (1h -)
+
+- firebase                                    (10h -)
+  - auth                                      (4h)
+  - add events to Redis (on every set/replace, publish this event to firebase) (6h)
+  
+- JWT           (1h)
 
 - [x] upload to git
 ---------------------------------------------------------------------------------
