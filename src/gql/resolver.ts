@@ -28,15 +28,12 @@ export const createRoot = async () => {
       return await redisInterface.getString(key)
     },
     expireKey: async ({ expire }: any) => {
-      console.log(expire)
       return await redisInterface.expireKey(expire)
     },
     deleteKey: async ({ key }: any) => {
-      console.log(key)
       return await redisInterface.deleteKey(key)
     },
     setKey: async ({ record }: any) => {
-      console.log(record)
       return await redisInterface.setKey(record)
     }
 
