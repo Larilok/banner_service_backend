@@ -1,7 +1,5 @@
 A backend of application to manage banners
 =====
-import _ from 'lodash'
-const _ = require('lodash')
 ## Technologies
 
 - Typescript
@@ -171,29 +169,69 @@ custom data type and type pseudonym
 
 
 
- 
+- [x] WebSocket what for?                                 (40m - 30m)
+- [x] SNS, SQS examples                                   (40m - 1h20m)
+- [x] Load balancers in AWS(how to determine when to branch,
+ examples)                                                (40m - 1h40m)
+- [x] CloudWatch                                          !(40m - 20m+2h20m)
+- [x] Amazon Cognito                                      !(1h30m -3h)
+- [x] EventBridge AWS                                     !(2h -2h)
 
-- EventBridge AWS                                         (4h -)
+- [x] CDN(cloudFront)                                     (1h40m - 1h40m)
+- [x] aws lambda(event, context, callback)                (30m - 30m + 1h30m)
+- [x] CloudWatch deep dive(metrics source)                (40m - 1h20m)
 
-- WebSocket what for?                                     (40m -)
-- SNS, SQS examples                                       (40m -)
-- Load balancers in AWS(how to determine when to branch,
- examples)                                                (40m -)
-- CloudWatch
-- CDN(cloudFront)                                         (40m -)
-- Amazon Cognito                                          (40m -)
+- [x] Lambda service desc(duration, amount, cost)             (1h30m - )
+  vs kuber cluster
 
----------------------------------------------------------------------------------
-till 11.13
-- antipatterns                                            (6h - )
+- [x] antipatterns                                            (6h - )
   - Cut-And-Paste Programming
-  - The Blob
+  - The God Object
+  
+- [x] S3 buckets                                          (2h - 2h30m)
 
-- mixins and inheritance
+- [x] pricing and params of S3 bucket type                 (30m - 1h)
+- [x] logs request costs, CWDashboard costs                   (1h - 1h30m)
+- [x] upload file to S3                                      (1h - 1h)
+  - through AWS Lambda                                   (1h - 3h)
+- [x] CORS with example                                       (1h30m - 2h)
+- [x] mixins and inheritance                                  (1h30m - 2h)
+
+- GRASP                                                           (4h - 1h+4h)
+  - LowCoupling and HighCohesion
+- [x] DRY||DIE                                                    (30m - 15m)
+- [x] KISS                                                        (30m - 20m)
+- [x] YAGNI                                                       (30m - 15m)
+
+- description of SQL and NoSQL                                (30m - )
+- Redis(theory, use cases)                                    (3h - 7h)
+  (endpoints)
+  - add info to redis                                         (2h)
+  - extract from redis
+  
+Redis
+- how to get all keys
+- is the KEY exists
+  
+- sharding(Multi-AZ)
+  Sharding is a method of splitting and storing a single logical dataset in multiple databases.
+  A database can be split vertically — storing different tables & columns in a separate database, or horizontally — storing rows of a same table in multiple database nodes.
+
+  Amazon ElastiCache supports locating all of a cluster's nodes in a single or multiple Availability Zones (AZs). Further, if you elect to locate your nodes in multiple AZs (recommended), ElastiCache enables you to either choose the AZ for each node, or allow ElastiCache to choose them for you.
+
+  By locating the nodes in different AZs, you eliminate the chance that a failure, such as a power outage, in one AZ will cause your entire system to fail. Testing has demonstrated that there is no significant latency difference between locating all nodes in one AZ or spreading them across multiple AZs.
+
+  You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster.
+
+- commands to work with data in redis
+
+- [x] upload to git
+---------------------------------------------------------------------------------
 
 
 - browserify
 - CoR where appliable
+- FineReadrer
 ---
 
 ## Theory

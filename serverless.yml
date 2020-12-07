@@ -4,6 +4,9 @@ custom:
   supersecret: ${ssm:/aws/reference/secretsmanager/dev/banner-service/postgres~true}
 
 provider:
+  apiGateway:
+    shouldStartNameWithService: true
+
   name: aws
   vpc:
     securityGroupIds:
