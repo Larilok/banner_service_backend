@@ -24,7 +24,7 @@ export const createRoot = async () => {
     addBanner: async ({ banner }: IAddBanner) => {
       return await bannersTableInterface.createBanner(banner)
     },
-    getValue: async ({ key }: any) => {
+    getStringValue: async ({ key }: any) => {
       return await redisInterface.getString(key)
     },
     expireKey: async ({ expire }: any) => {
@@ -33,10 +33,8 @@ export const createRoot = async () => {
     deleteKey: async ({ key }: any) => {
       return await redisInterface.deleteKey(key)
     },
-    setKey: async ({ record }: any) => {
+    setStringRecord: async ({ record }: any) => {
       return await redisInterface.setKey(record)
     }
-
-
   }
 }
